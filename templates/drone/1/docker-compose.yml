@@ -1,0 +1,23 @@
+drone-lb:
+  ports:
+  - ${public_port}:8000
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+  - drone-server:drone-server
+  stdin_open: true
+
+drone-server:
+  image: drone/drone:0.4.2
+  environment:
+    - REMOTE_DRIVER=${remote_driver}
+    - REMOTE_CONFIG=${remote_config}
+    - DATABASE_DRIVER=${database_driver}
+    - DATABASE_CONFIG=${database_config}
+    - PLUGIN_FILTER=plugins/* framgia/*
+  net: 'container:drone-server'
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/lib/drone
+    - /etc/drone
+    - /opt/rancher
