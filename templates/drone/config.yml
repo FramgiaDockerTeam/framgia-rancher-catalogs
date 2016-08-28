@@ -1,0 +1,5 @@
+name: framgia-drone
+description: |
+  Framgia Drone Rancher Catalog
+version: v0.4.2
+category: Continuous Integration

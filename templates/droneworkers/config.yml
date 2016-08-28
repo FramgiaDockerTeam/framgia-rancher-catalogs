@@ -1,0 +1,5 @@
+name: Framgia Drone Rancher Node Manager
+description: |
+  Dynamically add remove Drone worker nodes
+version: 0.1.0
+category: Continuous Integration
